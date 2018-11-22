@@ -1,0 +1,10 @@
+<mat-card>
+  <button *ngIf="!randomNumber" mat-raised-button (click)="launchGame()">Démarrer le jeu</button>
+  <mat-form-field *ngIf="randomNumber">
+    <input matInput type="text" [(ngModel)]="number"  (keyup.enter)="checkNumber()">
+  </mat-form-field>
+  <button mat-raised-button (click)="checkNumber()">Tester</button>
+  <!--<p>{{randomNumber}}</p>-->
+  <p *ngFor="let message of messages">{{message}}</p>
+  <button mat-raised-button *ngIf="gameOver" (click)="restartGame()">Réessayer</button>
+</mat-card>
